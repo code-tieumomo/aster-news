@@ -1,0 +1,6 @@
+.fields-picture-container > img {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 10px;
+    margin-bottom: 1rem !important;
+}

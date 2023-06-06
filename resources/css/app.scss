@@ -1,0 +1,114 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    body {
+        font-family: 'Roboto', sans-serif;
+        @apply text-textPrimary;
+    }
+}
+
+@layer utilities {
+    .shadow-primary {
+        box-shadow: 0 2px 20px 0 #0000000A;
+    }
+
+    @media screen and (max-width: 576px) {
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    }
+}
+
+// Sidebar
+li.sidebar-active {
+    @apply relative;
+
+    & > a {
+        & > * {
+            @apply text-primary;
+        }
+
+        & > span {
+            @apply font-bold;
+        }
+    }
+
+    &::before {
+        @apply content-[""] absolute left-0 top-0 h-full w-full bg-primary opacity-10 z-[-1] rounded-r-3xl;
+    }
+
+    &::after {
+        @apply content-[""] absolute bg-primary w-1.5 h-1.5 top-1/2 left-4 -translate-y-1/2 rounded-full;
+    }
+}
+
+aside.showing {
+    @media screen and (max-width: 1023px) {
+        @apply left-0 bg-bgPrimary z-50;
+
+        & + #sidebar-overlay {
+            @apply content-[""] fixed bg-black opacity-50 inset-0 z-40;
+        }
+    }
+}
+
+// Detail
+#article {
+    @apply text-textPrimary text-opacity-60;
+
+    p {
+        @apply my-4;
+    }
+
+    & * {
+        @apply text-opacity-60 text-textPrimary text-[17px];
+    }
+
+    li {
+        @apply list-disc ml-5;
+    }
+
+    img {
+        @apply w-full rounded-md;
+    }
+
+    figcaption {
+        @apply text-center mt-1;
+
+        & * {
+            @apply text-opacity-60 text-textPrimary text-sm italic;
+        }
+    }
+
+    .desc_cation {
+        @apply my-2;
+
+        & > p {
+            @apply my-2;
+        }
+    }
+
+    .parser_title {
+        @apply text-opacity-60 text-textPrimary text-sm italic text-center mt-1;
+    }
+
+    video {
+        @apply w-full rounded-md aspect-video;
+    }
+}
+
+// Search form
+#submit-alt {
+    @apply cursor-pointer;
+}
